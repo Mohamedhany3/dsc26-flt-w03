@@ -1,22 +1,26 @@
 # AI usage: dsc26-flt-w03
 
-AI tools are allowed in this task. Fill in every section in your own words. This file is read by your Track Mentor, not by the grader.
-
 ## 1. Tools I used
 
-<!-- Write "none" if you used none. -->
+I used ChatGPT to understand the assignment requirements, help write Flutter code, and debug errors during implementation and testing.
+
+I also used Stack Overflow to look for solutions and understand Flutter and Dart errors.
 
 ## 2. The prompts that helped most
 
-<!-- Paraphrasing is fine. -->
-
-1.
-2.
+1. Help me implement QuestionApi with JSON parsing, HTTP status handling, UTF-8 decoding, and network error handling.
+2. Help me implement the retry logic in PracticeRepository, fix failing Flutter tests, and organize the UI using ChangeNotifier.
 
 ## 3. Where the assistant's code would have failed a hidden-test area, and how I noticed
 
-<!-- For example: it used response.body, retried a 401, forgot the disposed check, ignored Retry-After. Say which row (H01-H13) it would have failed and what made you notice. -->
+The assistant initially suggested using `result.error` in PracticeRepository, but the Result class in my project used `result.failure`.
+
+I noticed this because VS Code showed a compilation error. I checked the Result class and corrected the property name.
+
+This could have caused the project to fail compilation before running the hidden tests, including H08 (retry policy).
+
+I also reviewed the asynchronous UI code to ensure the ViewModel checks whether it has been disposed before updating the state. This is important for H13 (leaving mid-request).
 
 ## 4. My state-management choice
 
-<!-- ChangeNotifier, Riverpod 3 or Bloc/Cubit, and one sentence on why. -->
+I used ChangeNotifier to manage loading, success, empty, and error states. I chose it because it is simple, easy to understand, and does not require additional packages.

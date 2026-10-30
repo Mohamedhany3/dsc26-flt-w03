@@ -10,7 +10,7 @@ sealed class ApiFailure {
 
 /// No connection (`http.ClientException`).
 final class Offline extends ApiFailure {
-  const Offline();
+  Offline();
 
   @override
   bool get isTransient => true;
@@ -21,7 +21,7 @@ final class Offline extends ApiFailure {
 
 /// The server did not answer within the timeout.
 final class TimedOut extends ApiFailure {
-  const TimedOut();
+  TimedOut();
 
   @override
   bool get isTransient => true;
@@ -58,7 +58,7 @@ final class RateLimited extends ApiFailure {
 
 /// 401: the session expired; the student must sign in again.
 final class Unauthorized extends ApiFailure {
-  const Unauthorized();
+  Unauthorized();
 
   @override
   bool get isTransient => false;
@@ -69,7 +69,7 @@ final class Unauthorized extends ApiFailure {
 
 /// 404.
 final class NotFound extends ApiFailure {
-  const NotFound();
+  NotFound();
 
   @override
   bool get isTransient => false;
@@ -80,7 +80,7 @@ final class NotFound extends ApiFailure {
 
 /// 200, but the body is not what the API promises.
 final class BadResponse extends ApiFailure {
-  const BadResponse(this.reason);
+  BadResponse(this.reason);
 
   final String reason;
 

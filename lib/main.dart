@@ -28,10 +28,19 @@ void main() {
           'stem': 'سيارة تقطع ١٢٠ كم في ساعتين. ما سرعتها؟',
           'choices': ['30 كم/س', '60 كم/س', '120 كم/س'],
         },
+        {
+          'id': 'q1',
+          'skillId': 'chem.moles',
+          'stem': 'كم عدد المولات في ١٨ جرام من الماء؟',
+          'choices': ['0.5', '1', '2', '18'],
+        },
       ],
     });
-    return http.Response.bytes(utf8.encode(body), 200,
-        headers: {'content-type': 'application/json'});
+    return http.Response.bytes(
+      utf8.encode(body),
+      200,
+      headers: {'content-type': 'application/json'},
+    );
   });
   final repository = PracticeRepository(
     api: QuestionApi(
